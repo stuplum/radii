@@ -1,0 +1,23 @@
+{
+  "name": "radii",
+  "version": "0.0.1",
+  "description": "AngularJS unit testing helper methods",
+  "main": "./lib/radii.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stuplum/radii"
+  },
+  "keywords": [
+    "karma-framework",
+    "karma-adapter"
+  ],
+  "author": "stuplum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stuplum/radii/issues"
+  },
+  "homepage": "https://github.com/stuplum/radii"
+}
