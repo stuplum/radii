@@ -4,15 +4,16 @@
   "description": "AngularJS unit testing helper methods",
   "main": "./lib/radii.js",
   "scripts": {
-    "test": "npm test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "http://github.com/stuplum/radii"
   },
   "keywords": [
-    "karma-framework",
-    "karma-adapter"
+    "angular",
+    "angualrjs",
+    "unit testing"
   ],
   "author": "stuplum",
   "license": "MIT",
