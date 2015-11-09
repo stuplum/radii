@@ -1,6 +1,6 @@
 {
   "name": "radii",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AngularJS unit testing helper methods",
   "main": "./lib/radii.js",
   "scripts": {
