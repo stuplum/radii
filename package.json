@@ -1,6 +1,6 @@
 {
   "name": "radii",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AngularJS unit testing helper methods",
   "main": "./lib/radii.js",
   "scripts": {
@@ -30,7 +30,9 @@
     "babel-preset-es2015": "^6.1.18",
     "core-js": "^1.2.6",
     "jasmine-core": "^2.3.4",
+    "jasmine-jquery-matchers": "^1.0.1",
     "jasmine-sinon": "^0.4.0",
+    "jquery": "^2.1.4",
     "karma": "^0.13.2",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^0.2.0",
