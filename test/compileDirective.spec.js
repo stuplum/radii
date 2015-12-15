@@ -170,6 +170,73 @@ describe('compileDirective', function () {
 
     });
 
+    const scenarios = [
+        { selector: '#two', expectedResults: 1 },
+        { selector: '.a', expectedResults: 4 },
+        { selector: '.b', expectedResults: 3 },
+        { selector: '.c', expectedResults: 3 },
+        { selector: '.a .b', expectedResults: 3 },
+        { selector: '.a .c', expectedResults: 3 },
+        { selector: '.a > .c', expectedResults: 2 },
+        { selector: '.a.d', expectedResults: 1 },
+        { selector: '.a.d .c', expectedResults: 1 }
+    ];
+
+    scenarios.forEach(scenario =>
+
+        it(`should find elements by css selector [${scenario.selector}]`, () => {
+
+            // Given
+                const template = `<div>
+                                       <em id="one" class="a">
+                                           <i class="b"></i>
+                                           <i class="b"></i>
+                                       </em>
+                                       <em id="two" class="a">
+                                           <b class="c"></b>
+                                       </em>
+                                       <em id="three" class="a">
+                                           <i class="b">
+                                               <b class="c"></b>
+                                           </i>
+                                       </em>
+                                       <em id="four" class="a d">
+                                           <b class="c"></b>
+                                       </em>
+                                   </div>`;
+
+                createDirective('myTestDirective', function () {
+                    return { scope: { }, template: template };
+                });
+
+            // And
+                const $myTestDirective = radii.compileDirective('<my-test-directive test-value="{{ testValueFromParentScope }}"></my-test-directive>', { $rootScope: { testValueFromParentScope: 'test value' } });
+
+            // Then
+                expect($myTestDirective.$find(scenario.selector).length).toEqual(scenario.expectedResults);
+
+        })
+    );
+
+    it('should return an angular element', () => {
+
+        // Given
+            createDirective('myTestDirective', function () {
+                return {
+                    scope: { },
+                    template: `<div><em id="one" class="a"></em></div>`
+                };
+            });
+
+        // And
+            const $myTestDirective = radii.compileDirective('<my-test-directive test-value="{{ testValueFromParentScope }}"></my-test-directive>', { $rootScope: { testValueFromParentScope: 'test value' } });
+
+        // Then
+            expect($myTestDirective.$find('.a').eq(0)).toBeAngularElement();
+
+    });
+
+
     function createDirective(name, func) {
 
         let fakeDir = angular.module('test.directive', []).directive(name, func).name;
